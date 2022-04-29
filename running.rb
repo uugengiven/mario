@@ -12,10 +12,10 @@ on :key_down do |event|
         mario_falling_speed = -10
     end
     if event.key == 'd'
-        mario_walking_speed += 1
+        mario.x = mario.x + 5
     end
     if event.key == 'a'
-        mario_walking_speed -= 1
+        mario.x = mario.x - 5
     end
 end
 
@@ -26,9 +26,6 @@ blue_square = Square.new(
 )
 
 update do
-    # mario left/right
-    mario.x = mario.x + mario_walking_speed
-
     # mario falls
     # would he land with his feet below the square's top? Then land on it
     if blue_square.y < (mario.y + mario_falling_speed + mario.height)
@@ -63,7 +60,10 @@ end
     # what if he runs into an object from the side?
 
 # next goal: move left/right
-# when you press d, make him start sliding slowly right
+# ice skate: when you press d, make him start sliding slowly right
+# hopping goal: when you press d, Mario moves some right
+    # when you hold d, he keeps going right (release and he stops)
+    # max walking speed, skid to stop
 show
 
 
