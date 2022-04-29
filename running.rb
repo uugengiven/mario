@@ -12,10 +12,10 @@ on :key_down do |event|
         mario_falling_speed = -10
     end
     if event.key == 'd'
-        mario_walking_speed = 1
+        mario_walking_speed += 1
     end
     if event.key == 'a'
-        mario_walking_speed = -1
+        mario_walking_speed -= 1
     end
 end
 
