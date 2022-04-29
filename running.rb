@@ -8,14 +8,21 @@ mario_falling_speed = 0
 mario_walking_speed = 0
 
 on :key_down do |event|
-    if event.key == 'w'
+    if event.key == 'space'
         mario_falling_speed = -10
     end
+end
+on :key_up do |event|
+    mario.rotate = 0
+end
+on :key_held do |event|
     if event.key == 'd'
         mario.x = mario.x + 5
+        mario.rotate = 90
     end
     if event.key == 'a'
         mario.x = mario.x - 5
+        mario.rotate = 270
     end
 end
 
