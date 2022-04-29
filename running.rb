@@ -20,14 +20,14 @@ blue_square = Square.new(
 
 update do
     # mario falls
-    mario.y = mario.y + mario_falling_speed
 
-    # stop when bottom left corner hits the blue square
-    if blue_square.contains? mario.x, mario.y + mario.height
+    # would he land inside the square? Then land on it
+    if blue_square.contains? mario.x, mario.y + mario_falling_speed + mario.height
         mario_falling_speed = 0
-        # and pop back up to the top of the square if necessary
         mario.y = blue_square.y - mario.height
     else
+        # keep falling
+        mario.y = mario.y + mario_falling_speed
         mario_falling_speed = mario_falling_speed + 1 #gravity
     end
 end
@@ -41,12 +41,15 @@ end
 # spawn obstacle
 # collision detection
 # resizable window?!
+# moving left-right
 
 # first goal:
 # create a floor of some sort
 # when mario falls onto the floor, he stops
     # when mario hits a certain y value (where the floor is), he stops
     # do something different (??) when mario is 'include?'ed in the square - or with 'contains'
+    # make it so all blue squares stop mario
+    # what if he runs into an object from the side?
 
 show
 
