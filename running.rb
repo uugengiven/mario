@@ -21,8 +21,8 @@ blue_square = Square.new(
 update do
     # mario falls
 
-    # would he land inside the square? Then land on it
-    if blue_square.contains? mario.x, mario.y + mario_falling_speed + mario.height
+    # would he land with his feet below the square's top? Then land on it
+    if blue_square.y < (mario.y + mario_falling_speed + mario.height)
         mario_falling_speed = 0
         mario.y = blue_square.y - mario.height
     else
